@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa analítico del modelo actual de Baños de Agua Santa</title>
+  <meta name="description" content="Mapa mental académico sobre gobernanza, planificación territorial, turismo, cultura viva y control social en Baños de Agua Santa, Ecuador." />
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --paper: #fffaf0;
+      --ink: #1e2a24;
+      --muted: #5c655d;
+      --green: #163b2e;
+      --green-2: #2d604c;
+      --gold: #b68a3a;
+      --clay: #8a4f2c;
+      --red: #8f3d31;
+      --blue: #2f5d73;
+      --line: #d9cfbb;
+      --soft: #eee6d6;
+      --shadow: 0 18px 45px rgba(31, 39, 34, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(182, 138, 58, 0.16), transparent 32rem),
+        linear-gradient(180deg, #f7f2e8 0%, #efe5d4 100%);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--green-2);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(45, 96, 76, 0.35);
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 80px;
+    }
+
+    header.hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+      padding: 58px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(22, 59, 46, 0.94), rgba(22, 59, 46, 0.72)),
+        url('') center/cover;
+      box-shadow: var(--shadow);
+      color: #fffaf0;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      bottom: -150px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: rgba(182, 138, 58, 0.16);
+      border: 1px solid rgba(255, 250, 240, 0.12);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 250, 240, 0.22);
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #f4dfaa;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    h1 {
+      max-width: 890px;
+      margin: 30px 0 22px;
+      font-size: clamp(2.25rem, 6vw, 5.4rem);
+      line-height: 0.97;
+      letter-spacing: -0.055em;
+    }
+
+    .subtitle {
+      max-width: 830px;
+      margin: 0;
+      font-size: clamp(1.05rem, 2vw, 1.38rem);
+      color: rgba(255, 250, 240, 0.87);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 32px;
+      align-items: end;
+      margin-top: 48px;
+    }
+
+    .hero-card {
+      padding: 24px;
+      border: 1px solid rgba(255, 250, 240, 0.18);
+      border-radius: 22px;
+      background: rgba(255, 250, 240, 0.08);
+      backdrop-filter: blur(8px);
+      font-family: Arial, Helvetica, sans-serif;
+      color: rgba(255, 250, 240, 0.9);
+    }
+
+    .hero-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #f3d78d;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    nav.toc {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 24px 0 34px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    nav.toc a {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 250, 240, 0.7);
+      color: var(--green);
+      box-shadow: 0 8px 22px rgba(31, 39, 34, 0.06);
+    }
+
+    section {
+      margin: 28px 0;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: rgba(255, 250, 240, 0.82);
+      box-shadow: 0 12px 32px rgba(31, 39, 34, 0.08);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.75rem, 3vw, 2.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      color: var(--green);
+    }
+
+    h3 {
+      margin: 28px 0 12px;
+      font-size: 1.25rem;
+      line-height: 1.2;
+      color: var(--clay);
+    }
+
+    p {
+      margin: 0 0 15px;
+    }
+
+    .lead {
+      font-size: 1.16rem;
+      color: #2b3831;
+    }
+
+    .abstract {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .meta-box {
+      padding: 22px;
+      border-radius: 20px;
+      background: var(--soft);
+      border-left: 5px solid var(--gold);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .meta-box dl {
+      margin: 0;
+    }
+
+    .meta-box dt {
+      margin-top: 12px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .meta-box dd {
+      margin: 2px 0 0;
+      color: var(--muted);
+    }
+
+    .diagram-shell {
+      margin-top: 24px;
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(22, 59, 46, 0.06), rgba(182, 138, 58, 0.08));
+      border: 1px solid var(--line);
+    }
+
+    .mental-map {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .node {
+      position: relative;
+      min-height: 180px;
+      padding: 22px;
+      border-radius: 22px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 24px rgba(31, 39, 34, 0.07);
+    }
+
+    .node.central {
+      grid-column: 1 / -1;
+      min-height: 0;
+      padding: 28px;
+      color: #fffaf0;
+      background: linear-gradient(135deg, var(--green), var(--green-2));
+      border: 0;
+    }
+
+    .node h3 {
+      margin-top: 0;
+      color: var(--green);
+    }
+
+    .node.central h3 {
+      color: #f3d78d;
+      font-size: 1.6rem;
+    }
+
+    .node ul,
+    .callout ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    .node li,
+    .callout li {
+      margin: 6px 0;
+    }
+
+    .tagline {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fffdf6;
+    }
+
+    table {
+      width: 100%;
+      min-width: 850px;
+      border-collapse: collapse;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.93rem;
+    }
+
+    th,
+    td {
+      padding: 15px 16px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      color: #fffaf0;
+      background: var(--green);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: rgba(238, 230, 214, 0.45);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .callout {
+      padding: 22px;
+      border-radius: 20px;
+      background: var(--soft);
+      border-left: 5px solid var(--green-2);
+    }
+
+    .callout.warning {
+      border-left-color: var(--red);
+      background: #f5e4dc;
+    }
+
+    .callout.gold {
+      border-left-color: var(--gold);
+      background: #f7ecd0;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .flow-item {
+      position: relative;
+      padding: 18px;
+      min-height: 118px;
+      border-radius: 18px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .flow-item:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      top: 50%;
+      right: -14px;
+      transform: translateY(-50%);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.4rem;
+      z-index: 2;
+    }
+
+    .flow-item strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--green);
+    }
+
+    .thesis {
+      padding: 28px;
+      border-radius: 22px;
+      color: #fffaf0;
+      background: linear-gradient(135deg, #173b2d, #7b4628);
+      font-size: 1.25rem;
+      line-height: 1.55;
+    }
+
+    .questions {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .question-card {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #fffdf6;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .question-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--clay);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
+    }
+
+    .print-note {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(47, 93, 115, 0.09);
+      color: var(--blue);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    footer {
+      margin-top: 34px;
+      padding: 26px;
+      border-radius: 22px;
+      background: var(--green);
+      color: rgba(255, 250, 240, 0.84);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.94rem;
+    }
+
+    footer strong {
+      color: #f3d78d;
+    }
+
+    @media (max-width: 900px) {
+      header.hero {
+        padding: 34px 24px;
+        min-height: auto;
+      }
+
+      .hero-grid,
+      .abstract,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      nav.toc,
+      .mental-map,
+      .questions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-item:not(:last-child)::after {
+        content: "↓";
+        top: auto;
+        bottom: -22px;
+        right: 50%;
+        transform: translateX(50%);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 18px, 1180px);
+      }
+
+      nav.toc,
+      .mental-map,
+      .questions {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 22px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      nav.toc {
+        display: none;
+      }
+
+      header.hero,
+      section,
+      footer {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      header.hero {
+        color: var(--ink);
+        background: #fff;
+        border: 1px solid var(--line);
+      }
+
+      .hero-card {
+        color: var(--ink);
+        border-color: var(--line);
+        background: #fff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <span class="eyebrow">Mapa mental académico · Gobernanza territorial</span>
+      <h1>Modelo actual de Baños de Agua Santa</h1>
+      <p class="subtitle">Lectura estructural de planificación, turismo, uso del suelo, cultura viva, participación ciudadana y control social para comprender quién decide, quién regula, quién ejecuta y qué tensiones produce el modelo territorial vigente.</p>
+
+      <div class="hero-grid">
+        <div class="hero-card">
+          <strong>Tesis de trabajo</strong>
+          Baños se presenta formalmente como territorio sostenible, resiliente, turístico, comercial, artesanal, agropecuario y cultural. El análisis crítico consiste en observar si la práctica institucional y económica reproduce ese equilibrio o si privilegia una ciudad-destino orientada por saturación turística, captura simbólica y presión territorial.
+        </div>
+        <div class="hero-card">
+          <strong>Documento base</strong>
+          Ordenanza de aprobación del PDOT 2019–2023 y PUGS 2019–2031 del cantón Baños de Agua Santa, más el diagnóstico territorial y económico del PDOT.
+        </div>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="Índice del documento">
+      <a href="#resumen">Resumen</a>
+      <a href="#mapa">Mapa mental</a>
+      <a href="#regulacion">Quién regula a quién</a>
+      <a href="#flujos">Flujos del modelo</a>
+      <a href="#tensiones">Tensiones críticas</a>
+      <a href="#metodo">Método de investigación</a>
+      <a href="#preguntas">Preguntas guía</a>
+      <a href="#glosario">Glosario</a>
+    </nav>
+
+    <section id="resumen">
+      <h2>Resumen analítico</h2>
+      <div class="abstract">
+        <div>
+          <p class="lead">Este documento organiza, en forma de mapa mental académico, el modelo de gobernanza territorial de Baños de Agua Santa a partir de sus capas normativas, institucionales, económicas, sociales y simbólicas.</p>
+          <p>El objetivo es distinguir entre el modelo formal descrito por los instrumentos de planificación —derecho a la ciudad, participación, gestión del riesgo, sostenibilidad, ordenamiento territorial y cultura— y el modelo real que se observa en la práctica: turismo intensivo, presión sobre servicios, saturación visual, informalidad, conflictos de uso de suelo, concentración de beneficios y debilitamiento de la vida territorial cotidiana.</p>
+          <p>La herramienta central es una pregunta organizadora: <strong>¿Baños está funcionando como territorio humano o como maqueta turística?</strong></p>
+        </div>
+        <aside class="meta-box">
+          <dl>
+            <dt>Objeto de estudio</dt>
+            <dd>Modelo actual de planificación, promoción y gestión territorial de Baños de Agua Santa.</dd>
+            <dt>Escala</dt>
+            <dd>Cantonal, urbana, turística, cultural y comunitaria.</dd>
+            <dt>Ejes</dt>
+            <dd>Norma, instituciones, economía turística, cultura viva, territorio, riesgo y control social.</dd>
+            <dt>Uso práctico</dt>
+            <dd>Base para investigación, post académico, informe, presentación pública o mapa visual en Canva.</dd>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section id="mapa">
+      <h2>Mapa mental maestro</h2>
+      <p>El modelo puede leerse como un sistema de capas. Cada capa produce reglas, decisiones, intereses, impactos o relatos. El problema aparece cuando las capas formales de sostenibilidad y participación quedan subordinadas a la capa económica-promocional.</p>
+
+      <div class="diagram-shell">
+        <div class="mental-map">
+          <article class="node central">
+            <span class="tagline">Nodo central</span>
+            <h3>Baños de Agua Santa: territorio humano, destino turístico y espacio regulado</h3>
+            <p>La disputa principal no es turismo sí o turismo no. La disputa es qué tipo de turismo, bajo qué reglas, con qué control, con qué participación y con qué efectos sobre la vida local.</p>
+          </article>
+
+          <article class="node">
+            <span class="tagline">Capa 1</span>
+            <h3>Normativa</h3>
+            <ul>
+              <li>Constitución</li>
+              <li>COOTAD</li>
+              <li>LOOTUGS</li>
+              <li>PDOT 2019–2023</li>
+              <li>PUGS 2019–2031</li>
+              <li>Ordenanzas complementarias</li>
+            </ul>
+          </article>
+
+          <article class="node">
+            <span class="tagline">Capa 2</span>
+            <h3>Institucional</h3>
+            <ul>
+              <li>Alcaldía</li>
+              <li>Concejo Municipal</li>
+              <li>Direcciones técnicas</li>
+              <li>Consejo Cantonal de Planificación</li>
+              <li>Unidades de turismo, planificación y control</li>
+            </ul>
+          </article>
+
+          <article class="node">
+            <span class="tagline">Capa 3</span>
+            <h3>Económica turística</h3>
+            <ul>
+              <li>Alojamiento</li>
+              <li>Restaurantes y bares</li>
+              <li>Operadores turísticos</li>
+              <li>Chivas y transporte turístico</li>
+              <li>Termas, aventura y comercio</li>
+              <li>Promoción público-privada</li>
+            </ul>
+          </article>
+
+          <article class="node">
+            <span class="tagline">Capa 4</span>
+            <h3>Territorial</h3>
+            <ul>
+              <li>Uso de suelo</li>
+              <li>Movilidad</li>
+              <li>Agua y saneamiento</li>
+              <li>Residuos</li>
+              <li>Riesgo volcánico</li>
+              <li>Espacio público y paisaje</li>
+            </ul>
+          </article>
+
+          <article class="node">
+            <span class="tagline">Capa 5</span>
+            <h3>Social-cultural</h3>
+            <ul>
+              <li>Barrios</li>
+              <li>Familias residentes</li>
+              <li>Artesanos y artistas</li>
+              <li>Memoria local</li>
+              <li>Cultura viva</li>
+              <li>Patrimonio material e inmaterial</li>
+            </ul>
+          </article>
+
+          <article class="node">
+            <span class="tagline">Capa 6</span>
+            <h3>Simbólica y mediática</h3>
+            <ul>
+              <li>Marca ciudad</li>
+              <li>Relato turístico</li>
+              <li>Influencers y medios</li>
+              <li>Promoción institucional</li>
+              <li>Estética de postal</li>
+              <li>Ciudad-maqueta</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="regulacion">
+      <h2>Quién regula a quién</h2>
+      <p>Esta matriz permite ubicar responsabilidades formales. Sirve para evitar discusiones vagas y formular preguntas concretas de rendición de cuentas.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Actor / instancia</th>
+              <th>Función formal</th>
+              <th>Regula o incide sobre</th>
+              <th>Debe ser controlado por</th>
+              <th>Pregunta crítica</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Constitución y leyes nacionales</td>
+              <td>Definen derechos, competencias, participación, planificación y ordenamiento territorial.</td>
+              <td>GAD municipal, planificación local, uso del suelo, gestión del riesgo y políticas públicas.</td>
+              <td>Instituciones nacionales, ciudadanía, control social y justicia.</td>
+              <td>¿El modelo local cumple los principios superiores de equidad, participación y derecho a la ciudad?</td>
+            </tr>
+            <tr>
+              <td>GAD Municipal</td>
+              <td>Planificar el desarrollo cantonal, formular y ejecutar políticas públicas locales.</td>
+              <td>Territorio cantonal, servicios, obras, promoción, planificación y administración local.</td>
+              <td>Concejo Municipal, ciudadanía, órganos de control y evaluación técnica.</td>
+              <td>¿La acción municipal equilibra turismo, cultura, naturaleza, servicios y calidad de vida?</td>
+            </tr>
+            <tr>
+              <td>Concejo Municipal</td>
+              <td>Aprobar ordenanzas, PDOT, PUGS y normativa de uso de suelo.</td>
+              <td>Marco regulatorio local y decisiones urbanísticas.</td>
+              <td>Ciudadanía, participación, veedurías y rendición de cuentas.</td>
+              <td>¿Las ordenanzas responden al interés público o a presiones sectoriales?</td>
+            </tr>
+            <tr>
+              <td>Alcaldía</td>
+              <td>Ejecutar la administración local, sancionar ordenanzas y orientar la gestión pública.</td>
+              <td>Direcciones municipales, prioridades de obra, promoción y ejecución territorial.</td>
+              <td>Concejo, ciudadanía, órganos de control y prensa independiente.</td>
+              <td>¿La política pública prioriza habitantes o visitantes?</td>
+            </tr>
+            <tr>
+              <td>Direcciones de Planificación, Proyectos y Cooperación</td>
+              <td>Monitorear, evaluar, proponer modificaciones y reportar cumplimiento de metas.</td>
+              <td>PDOT, PUGS, proyectos, agenda regulatoria y seguimiento institucional.</td>
+              <td>Alcaldía, Concejo, ciudadanía y entidades rectoras nacionales.</td>
+              <td>¿Dónde están los informes de seguimiento y qué revelan sobre saturación, informalidad y servicios?</td>
+            </tr>
+            <tr>
+              <td>Consejo Cantonal de Planificación</td>
+              <td>Participar en formulación, seguimiento y evaluación de prioridades estratégicas.</td>
+              <td>Priorización de programas, planes y políticas de desarrollo.</td>
+              <td>Ciudadanía e instancias de participación.</td>
+              <td>¿La participación fue representativa, deliberativa y transparente?</td>
+            </tr>
+            <tr>
+              <td>Unidad o Dirección de Turismo</td>
+              <td>Promoción, coordinación y gestión del destino turístico.</td>
+              <td>Imagen turística, campañas, eventos, articulación con prestadores y experiencia del visitante.</td>
+              <td>GAD, Concejo, ciudadanía, sector cultural y control social.</td>
+              <td>¿La promoción muestra un territorio vivo o reduce Baños a consumo rápido?</td>
+            </tr>
+            <tr>
+              <td>Cámara de Turismo, gremios y asociaciones</td>
+              <td>Representar intereses sectoriales y proponer agendas económicas.</td>
+              <td>Relato turístico, presión sobre políticas, promoción y prioridades del destino.</td>
+              <td>Normativa pública, transparencia, competencia justa y ciudadanía.</td>
+              <td>¿Su influencia es legítima y plural o concentra el modelo en pocos actores?</td>
+            </tr>
+            <tr>
+              <td>Operadores, chivas, hoteles, bares, termas y comercio</td>
+              <td>Prestar servicios económicos dentro del territorio.</td>
+              <td>Flujo turístico, ruido, movilidad, paisaje, empleo, precios y uso del espacio.</td>
+              <td>Municipio, normativa sectorial, consumidores y comunidad.</td>
+              <td>¿El crecimiento económico respeta orden, convivencia y capacidad territorial?</td>
+            </tr>
+            <tr>
+              <td>Ciudadanía, barrios, artistas, agricultores y cultura viva</td>
+              <td>Habitar el territorio, participar, vigilar y producir vida cultural y social.</td>
+              <td>Control social, debate público, memoria territorial y legitimidad democrática.</td>
+              <td>Derechos constitucionales, mecanismos de participación y organización social.</td>
+              <td>¿La ciudadanía incide realmente o solo es convocada para validar decisiones ya tomadas?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="flujos">
+      <h2>Flujos del modelo</h2>
+      <p>El modelo actual puede comprenderse como una combinación de cuatro flujos: formal, económico, simbólico y de control social.</p>
+
+      <h3>1. Flujo formal de decisión</h3>
+      <div class="flow" aria-label="Flujo formal de decisión">
+        <div class="flow-item"><strong>Norma superior</strong>Constitución, leyes y reglamentos.</div>
+        <div class="flow-item"><strong>Plan local</strong>PDOT, PUGS y ordenanzas.</div>
+        <div class="flow-item"><strong>Decisión política</strong>Alcaldía y Concejo Municipal.</div>
+        <div class="flow-item"><strong>Ejecución técnica</strong>Direcciones, unidades y proyectos.</div>
+        <div class="flow-item"><strong>Territorio</strong>Obras, permisos, uso de suelo e impactos.</div>
+      </div>
+
+      <h3>2. Flujo real de influencia económica</h3>
+      <div class="flow" aria-label="Flujo real de influencia económica">
+        <div class="flow-item"><strong>Negocios turísticos</strong>Alojamiento, bares, operadores y transporte.</div>
+        <div class="flow-item"><strong>Gremios</strong>Agenda sectorial y presión organizada.</div>
+        <div class="flow-item"><strong>Promoción</strong>Marca destino y campañas.</div>
+        <div class="flow-item"><strong>Demanda masiva</strong>Feriados, saturación y consumo rápido.</div>
+        <div class="flow-item"><strong>Impacto</strong>Tráfico, ruido, basura, precios y paisaje.</div>
+      </div>
+
+      <h3>3. Flujo simbólico</h3>
+      <div class="flow" aria-label="Flujo simbólico">
+        <div class="flow-item"><strong>Imagen ideal</strong>Paraíso natural, aventura y postal.</div>
+        <div class="flow-item"><strong>Relato oficial</strong>Destino sostenible y atractivo.</div>
+        <div class="flow-item"><strong>Reproducción digital</strong>Redes, influencers y buscadores.</div>
+        <div class="flow-item"><strong>Consumo visual</strong>Fotos, recorridos y espectáculos.</div>
+        <div class="flow-item"><strong>Riesgo</strong>Ciudad-maqueta sin territorio humano.</div>
+      </div>
+
+      <h3>4. Flujo de control social</h3>
+      <div class="flow" aria-label="Flujo de control social">
+        <div class="flow-item"><strong>Observación</strong>Documentar hechos y patrones.</div>
+        <div class="flow-item"><strong>Evidencia</strong>PDOT, ordenanzas, fotos, datos y testimonios.</div>
+        <div class="flow-item"><strong>Análisis</strong>Mapas, informes, publicaciones y preguntas.</div>
+        <div class="flow-item"><strong>Debate público</strong>Ciudadanía y actores sociales.</div>
+        <div class="flow-item"><strong>Rendición</strong>Solicitudes, veedurías y reformas.</div>
+      </div>
+    </section>
+
+    <section id="tensiones">
+      <h2>Tensiones críticas del modelo</h2>
+      <div class="two-col">
+        <div class="callout warning">
+          <h3>Destino sostenible vs. maqueta turística</h3>
+          <p>El discurso oficial habla de sostenibilidad, resiliencia y planificación. La práctica observable puede derivar en saturación visual, congestión, presión sobre servicios y simplificación estética del territorio.</p>
+        </div>
+        <div class="callout">
+          <h3>Territorio humano vs. ciudad de consumo</h3>
+          <p>Baños es hogar, memoria, cultura, riesgo, agua, trabajo y convivencia. El turismo debe entrar dentro de esa realidad, no reemplazarla.</p>
+        </div>
+        <div class="callout gold">
+          <h3>Participación real vs. validación decorativa</h3>
+          <p>La participación ciudadana tiene sentido cuando incide en prioridades, presupuesto, control, evaluación y corrección del rumbo.</p>
+        </div>
+        <div class="callout warning">
+          <h3>Promoción pública vs. beneficio privado concentrado</h3>
+          <p>La promoción institucional debe evaluarse por su beneficio público y territorial, no solo por su capacidad de aumentar flujo turístico hacia sectores específicos.</p>
+        </div>
+      </div>
+
+      <div class="thesis" style="margin-top: 22px;">
+        <strong>Hipótesis interpretativa:</strong> el modelo actual de Baños parece operar mediante una superposición entre planificación formal, promoción turística intensiva e influencia económico-gremial. La pregunta pública no es si el turismo aporta, sino si el territorio conserva capacidad de regularlo democráticamente.
+      </div>
+    </section>
+
+    <section id="metodo">
+      <h2>Método para seguir investigando</h2>
+      <p>Para convertir este mapa mental en investigación sólida, conviene trabajar con una matriz de evidencias. Cada afirmación debe conectarse con una fuente, un actor, una competencia y un impacto.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Línea de investigación</th>
+              <th>Qué buscar</th>
+              <th>Fuente posible</th>
+              <th>Resultado esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gobernanza</td>
+              <td>Integrantes de consejos, comisiones, direcciones, delegados y cambios de administración.</td>
+              <td>Actas municipales, ordenanzas, PDOT, rendición de cuentas.</td>
+              <td>Mapa de actores públicos y continuidad institucional.</td>
+            </tr>
+            <tr>
+              <td>Turismo</td>
+              <td>Campañas, beneficiarios, convenios, eventos, contratos y promoción institucional.</td>
+              <td>GAD, Cámara de Turismo, redes oficiales, compras públicas.</td>
+              <td>Patrón de promoción y sectores favorecidos.</td>
+            </tr>
+            <tr>
+              <td>Uso de suelo</td>
+              <td>Permisos, cambios de uso, zonas de expansión, compatibilidad de actividades.</td>
+              <td>PUGS, catastro, ordenanzas, certificados de uso de suelo.</td>
+              <td>Relación entre negocio, regulación y ocupación territorial.</td>
+            </tr>
+            <tr>
+              <td>Servicios y capacidad de carga</td>
+              <td>Agua, residuos, movilidad, parqueo, alcantarillado, seguridad y emergencias.</td>
+              <td>Informes técnicos, planificación, presupuestos y observación de campo.</td>
+              <td>Diagnóstico de presión real sobre el territorio.</td>
+            </tr>
+            <tr>
+              <td>Cultura viva</td>
+              <td>Participación de artistas, artesanos, barrios, memoria local y patrimonio.</td>
+              <td>Programas culturales, entrevistas, archivos, eventos y presupuesto cultural.</td>
+              <td>Medición de si la cultura es eje real o decoración turística.</td>
+            </tr>
+            <tr>
+              <td>Conflictos de interés</td>
+              <td>Coincidencias entre cargos, gremios, empresas, apellidos, permisos y promoción.</td>
+              <td>Registros públicos, SRI, Superintendencia, actas, redes y prensa.</td>
+              <td>Red de relaciones verificables, sin acusaciones sin respaldo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="print-note">Regla metodológica: separar siempre observación, inferencia y acusación. La investigación gana fuerza cuando muestra patrones verificables sin convertir una sospecha en conclusión prematura.</div>
+    </section>
+
+    <section id="preguntas">
+      <h2>Preguntas guía para el mapa crítico</h2>
+      <div class="questions">
+        <div class="question-card"><strong>Regulación</strong>¿Quién controla realmente la informalidad, el ruido, la movilidad, el uso de suelo y la ocupación del espacio público?</div>
+        <div class="question-card"><strong>Gobernanza</strong>¿Quién fija las prioridades del destino y con qué mecanismos de participación?</div>
+        <div class="question-card"><strong>Beneficio</strong>¿Qué sectores reciben mayor promoción pública y qué sectores quedan invisibles?</div>
+        <div class="question-card"><strong>Territorio</strong>¿Qué impacto tiene el modelo sobre agua, residuos, paisaje, riesgo y calidad de vida?</div>
+        <div class="question-card"><strong>Cultura</strong>¿La cultura viva incide en la planificación o se usa como adorno de marca ciudad?</div>
+        <div class="question-card"><strong>Control social</strong>¿Dónde están los informes de seguimiento y evaluación del PDOT y el PUGS?</div>
+        <div class="question-card"><strong>Transparencia</strong>¿Qué datos permiten seguir contratos, permisos, promoción, beneficiarios y resultados?</div>
+        <div class="question-card"><strong>Futuro</strong>¿Qué pasa si el modelo continúa priorizando flujo turístico sobre habitabilidad?</div>
+      </div>
+    </section>
+
+    <section id="glosario">
+      <h2>Glosario operativo</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Definición operativa</th>
+              <th>Uso en la investigación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Territorio humano</td>
+              <td>El territorio entendido como lugar habitado, vivido, recordado, trabajado y cuidado por una comunidad.</td>
+              <td>Contraponer la experiencia real de habitantes frente a la postal turística.</td>
+            </tr>
+            <tr>
+              <td>Ciudad-maqueta</td>
+              <td>Modelo de destino que prioriza imagen, consumo y circulación de visitantes sobre vida local y complejidad territorial.</td>
+              <td>Nombrar el riesgo de convertir Baños en escenografía turística.</td>
+            </tr>
+            <tr>
+              <td>Saturación visual</td>
+              <td>Acumulación de letreros, anuncios, estímulos comerciales, tráfico y objetos que degradan paisaje y lectura urbana.</td>
+              <td>Analizar la pérdida de calidad paisajística y experiencia urbana.</td>
+            </tr>
+            <tr>
+              <td>Gobernanza turística</td>
+              <td>Relación entre instituciones públicas, gremios, empresas, ciudadanía y territorio para decidir el modelo turístico.</td>
+              <td>Identificar quién incide, quién queda fuera y qué intereses dominan.</td>
+            </tr>
+            <tr>
+              <td>Control social</td>
+              <td>Capacidad ciudadana de observar, preguntar, documentar, exigir información y participar en la evaluación pública.</td>
+              <td>Fundamentar observatorios, publicaciones y solicitudes de transparencia.</td>
+            </tr>
+            <tr>
+              <td>Cultura viva</td>
+              <td>Prácticas, memorias, oficios, artes, relatos y formas de vida que mantienen sentido territorial.</td>
+              <td>Defender que la cultura sea eje de planificación y no simple decorado promocional.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Conclusión</h2>
+      <p class="lead">El mapa mental muestra que Baños no puede comprenderse solo como destino turístico. Es una estructura compleja donde norma, economía, paisaje, cultura, riesgo y poder se cruzan.</p>
+      <p>El punto estratégico de la investigación consiste en ordenar esas capas y preguntar, con base documental, si el modelo actual cumple su propio marco: participación democrática, derecho a la ciudad, sostenibilidad, gestión del riesgo, equilibrio territorial y calidad de vida.</p>
+      <div class="thesis">
+        Baños merece un modelo donde el turismo sea parte de la vida territorial, no el reemplazo de la vida territorial.
+      </div>
+    </section>
+
+    <footer>
+      <strong>Nota de uso:</strong> este HTML está pensado como base académica y visual. Puede publicarse como página web, convertirse en PDF, usarse como guion para una presentación o adaptarse a un mapa visual en Canva. Se recomienda completar la investigación con citas precisas, anexos documentales, capturas de evidencia y una matriz cronológica de actores.
+    </footer>
+  </main>
+</body>
+</html>
