@@ -13,10 +13,10 @@ Documentar y analizar fenómenos culturales emergentes, con foco inicial en:
 ## Estructura
 
 - `index.html`: página principal del sitio
-- `/img`: recursos gráficos
-- Otros documentos: próximos módulos de archivo y publicaciones.
+- `Mapa-Modelo-Actual-Banos.html`: caso de educación cívica territorial
+- `robots.txt`: instrucciones de rastreo
+- `sitemap.xml`: inventario de páginas indexables
 
 ## Autores
 
 Proyecto dirigido por **Fito Girolami** y **Catalina Lucz-Ligeti**.
-

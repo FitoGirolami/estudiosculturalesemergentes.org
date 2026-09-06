@@ -1,376 +1,124 @@
-<!DOCTYPE html>
-<html lang="es" itemscope itemtype="https://schema.org/WebPage">
+<!doctype html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <link rel="canonical" href="https://estudiosculturalesemergentes.org/" />
-  <meta name="theme-color" content="#f8fafc" />
-
-  <title>Centro de Estudios Culturales Emergentes | Investigación y Archivo Ecuador</title>
-  <meta name="description" content="Plataforma de investigación académica y artística sobre fenómenos culturales en Ecuador. Archivo crítico sobre duendismo, tradición inventada, turismo y apropiación simbólica en Baños de Agua Santa." />
-  <meta name="keywords" content="estudios culturales, duendismo cultural, patrimonio inmaterial, Baños de Agua Santa, tradición inventada, sociología del turismo, Fito Girolami, Catalina Lucz-Ligeti, Ecuador" />
-  <meta name="author" content="Centro de Estudios Culturales Emergentes" />
-  <meta name="generator" content="HTML5 Academic Framework" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="es_EC" />
-  <meta property="og:site_name" content="Centro de Estudios Culturales Emergentes" />
-  <meta property="og:title" content="Investigación Crítica: Centro de Estudios Culturales Emergentes" />
-  <meta property="og:description" content="Archivo vivo y plataforma de pensamiento crítico sobre la transformación cultural y el turismo en Latinoamérica." />
-  <meta property="og:url" content="https://estudiosculturalesemergentes.org/" />
-  <meta property="og:image" content="https://estudiosculturalesemergentes.org/img/portada-centro-estudios.jpg" />
-  <meta property="og:image:alt" content="Archivo documental del Centro de Estudios Culturales Emergentes" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Centro de Estudios Culturales Emergentes – Ecuador" />
-  <meta name="twitter:description" content="Investigación situada: Duendismo, memoria y tensiones turísticas." />
-  <meta name="twitter:image" content="https://estudiosculturalesemergentes.org/img/portada-centro-estudios.jpg" />
-
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-  <style>
-    :root {
-      /* Paleta de colores seria y académica */
-      --bg-body: #f8fafc;
-      --bg-paper: #ffffff;
-      --text-main: #0f172a; /* Slate 900 */
-      --text-body: #334155; /* Slate 700 */
-      --text-muted: #64748b; /* Slate 500 */
-      --accent-primary: #0f766e; /* Teal 700 */
-      --accent-light: #f0fdfa; /* Teal 50 */
-      --border-subtle: #e2e8f0;
-      
-      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --font-serif: "Merriweather", "Georgia", serif; /* Para lectura densa */
-      
-      --max-width: 960px;
-      --radius: 8px;
-    }
-
-    /* Reset y Base */
-    *, *::before, *::after { box-sizing: border-box; }
-    
-    body {
-      margin: 0;
-      font-family: var(--font-sans);
-      background-color: var(--bg-body);
-      color: var(--text-body);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1, h2, h3, h4 {
-      color: var(--text-main);
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      line-height: 1.25;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    h1 { font-size: clamp(2rem, 4vw, 3rem); margin-top: 0; }
-    h2 { font-size: 1.75rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.5rem; }
-    h3 { font-size: 1.25rem; }
-
-    a { color: var(--accent-primary); text-decoration: none; font-weight: 500; transition: all 0.2s; }
-    a:hover { text-decoration: underline; color: #0d5f58; }
-    
-    p { margin-bottom: 1.5rem; }
-
-    /* Layout */
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* Header Navegación */
-    .site-header {
-      background: var(--bg-paper);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    
-    .nav-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .brand {
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-main);
-    }
-
-    .nav-links { display: flex; gap: 1.5rem; font-size: 0.9rem; }
-
-    /* Hero Section */
-    .hero {
-      padding: 4rem 0;
-      background: linear-gradient(to bottom, #ffffff 0%, #f1f5f9 100%);
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      background: var(--accent-light);
-      color: var(--accent-primary);
-      border: 1px solid #ccfbf1;
-      border-radius: 99px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    .lead { font-size: 1.25rem; color: var(--text-muted); max-width: 45ch; }
-
-    /* Botones */
-    .btn-group { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-    .btn-primary { background: var(--accent-primary); color: white; }
-    .btn-primary:hover { background: #0f5e57; text-decoration: none; }
-    .btn-outline { background: white; border: 1px solid var(--border-subtle); color: var(--text-main); }
-    .btn-outline:hover { background: #f8fafc; text-decoration: none; border-color: #cbd5e1; }
-
-    /* Grid de Contenido */
-    .grid-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-
-    .card {
-      background: var(--bg-paper);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    
-    .card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
-
-    /* Definiciones para IA (DL List) */
-    .concept-list dt { font-weight: 700; color: var(--text-main); margin-top: 1rem; }
-    .concept-list dd { margin-left: 0; margin-bottom: 1rem; color: var(--text-body); }
-
-    /* Footer */
-    .site-footer {
-      border-top: 1px solid var(--border-subtle);
-      margin-top: 4rem;
-      padding: 3rem 0;
-      background: var(--bg-paper);
-      font-size: 0.875rem;
-      color: var(--text-muted);
-    }
-
-    /* Utilidades */
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
-    
-    @media (max-width: 768px) {
-      .nav-flex { flex-direction: column; align-items: flex-start; }
-      .nav-links { flex-wrap: wrap; gap: 1rem; }
-      h1 { font-size: 2rem; }
-    }
-  </style>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Centro de Estudios Culturales Emergentes | Investigación situada en Ecuador</title>
+  <meta name="description" content="Centro independiente de investigación situada sobre fenómenos culturales emergentes, memoria territorial, creación autoral, turistificación y tradición inventada en Ecuador y Latinoamérica.">
+  <link rel="canonical" href="https://estudiosculturalesemergentes.org/">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+  <meta name="theme-color" content="#11112a">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_EC">
+  <meta property="og:site_name" content="Centro de Estudios Culturales Emergentes – Ecuador">
+  <meta property="og:title" content="Los símbolos no nacen convertidos en tradición">
+  <meta property="og:description" content="Investigamos cómo nacen, circulan, se transforman y se institucionalizan nuevas prácticas, símbolos y narrativas culturales.">
+  <meta property="og:url" content="https://estudiosculturalesemergentes.org/">
+  <meta name="twitter:card" content="summary">
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
+    "@context":"https://schema.org",
+    "@graph":[
       {
-        "@type": "Organization",
-        "@id": "https://estudiosculturalesemergentes.org/#organization",
-        "name": "Centro de Estudios Culturales Emergentes – Ecuador",
-        "alternateName": ["CECE Ecuador", "Archivo Cultural Baños"],
-        "url": "https://estudiosculturalesemergentes.org/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://estudiosculturalesemergentes.org/img/logo-centro-estudios.png"
-        },
-        "description": "Instituto independiente de investigación dedicado al análisis de fenómenos culturales emergentes, duendismo y turismo.",
-        "foundingLocation": {
-          "@type": "Place",
-          "name": "Baños de Agua Santa, Ecuador",
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "-1.3964",
-            "longitude": "-78.4247"
-          }
-        },
-        "founders": [
-          { "@type": "Person", "name": "Fito Girolami", "jobTitle": "Investigador Principal" },
-          { "@type": "Person", "name": "Catalina Lucz-Ligeti", "jobTitle": "Directora de Archivo" }
+        "@type":"ResearchOrganization",
+        "@id":"https://estudiosculturalesemergentes.org/#organization",
+        "name":"Centro de Estudios Culturales Emergentes – Ecuador",
+        "alternateName":"Estudios Culturales Emergentes",
+        "url":"https://estudiosculturalesemergentes.org/",
+        "description":"Centro independiente de investigación situada dedicado al estudio de fenómenos culturales emergentes, memoria territorial, creación autoral, turistificación y tradición inventada.",
+        "foundingLocation":{"@type":"Place","name":"Baños de Agua Santa, Tungurahua, Ecuador"},
+        "founder":[
+          {"@type":"Person","name":"Fito Girolami","url":"https://fitogirolami.art/"},
+          {"@type":"Person","name":"Catalina Lucz-Ligeti"}
         ],
-        "knowsAbout": [
-          "Cultural Studies",
-          "Invented Traditions",
-          "Cultural Appropriation",
-          "Tourism Sociology",
-          "Duendismo Cultural"
+        "knowsAbout":[
+          "fenómenos culturales emergentes","memoria situada","creación autoral contemporánea",
+          "tradición inventada","turistificación","apropiación simbólica","sociología del turismo",
+          "patrimonio emergente","Duendismo Cultural"
         ],
-        "sameAs": [
+        "sameAs":[
           "https://zenodo.org/communities/centro-de-estudios-culturales-emergentes-ecuador",
-          "https://duendismocultural.org/",
-          "https://lacasadelduende.art/"
+          "https://duendismocultural.org/"
         ]
       },
       {
-        "@type": "WebSite",
-        "@id": "https://estudiosculturalesemergentes.org/#website",
-        "url": "https://estudiosculturalesemergentes.org/",
-        "name": "Portal de Estudios Culturales Emergentes",
-        "publisher": { "@id": "https://estudiosculturalesemergentes.org/#organization" },
-        "inLanguage": "es-EC"
+        "@type":"WebSite",
+        "@id":"https://estudiosculturalesemergentes.org/#website",
+        "url":"https://estudiosculturalesemergentes.org/",
+        "name":"Centro de Estudios Culturales Emergentes",
+        "publisher":{"@id":"https://estudiosculturalesemergentes.org/#organization"},
+        "inLanguage":"es-EC"
+      },
+      {
+        "@type":"DefinedTermSet",
+        "@id":"https://estudiosculturalesemergentes.org/#conceptos",
+        "name":"Conceptos para estudiar culturas emergentes",
+        "hasDefinedTerm":[
+          {"@type":"DefinedTerm","name":"Fenómeno cultural emergente","description":"Práctica, símbolo, narrativa o forma de organización cuyo significado se encuentra todavía en formación, circulación o disputa."},
+          {"@type":"DefinedTerm","name":"Creación autoral contemporánea","description":"Producción cultural reciente con autores, cronología y proceso creativo documentables."},
+          {"@type":"DefinedTerm","name":"Tradición inventada","description":"Proceso mediante el cual prácticas o relatos recientes adquieren apariencia de continuidad histórica."},
+          {"@type":"DefinedTerm","name":"Memoria situada","description":"Conocimiento construido desde la experiencia, los actores y las condiciones específicas de un territorio."},
+          {"@type":"DefinedTerm","name":"Turistificación","description":"Transformación material o simbólica de un territorio bajo las demandas y narrativas del turismo."}
+        ]
+      },
+      {
+        "@type":"FAQPage",
+        "@id":"https://estudiosculturalesemergentes.org/#preguntas",
+        "mainEntity":[
+          {"@type":"Question","name":"¿Qué estudia el Centro de Estudios Culturales Emergentes?","acceptedAnswer":{"@type":"Answer","text":"Estudia prácticas, símbolos y narrativas cuyo significado se encuentra en formación o disputa, atendiendo a su origen, circulación, apropiación, mercantilización e institucionalización."}},
+          {"@type":"Question","name":"¿Qué es un fenómeno cultural emergente?","acceptedAnswer":{"@type":"Answer","text":"Es una práctica, símbolo, narrativa o forma de organización cuyo significado todavía se está formando, circulando o disputando entre creadores, comunidades, mercados, plataformas e instituciones."}},
+          {"@type":"Question","name":"¿El Centro es una universidad o institución pública?","acceptedAnswer":{"@type":"Answer","text":"No. Es un centro independiente de investigación situada y ciencia abierta con base en Baños de Agua Santa, Ecuador."}},
+          {"@type":"Question","name":"¿El Centro y la Revista Duendismo Cultural son lo mismo?","acceptedAnswer":{"@type":"Answer","text":"No. El Centro construye marcos conceptuales, métodos y casos de estudio. La Revista Duendismo Cultural es una publicación de acceso abierto editada por el Centro."}},
+          {"@type":"Question","name":"¿Cómo distingue el Centro una leyenda de una creación contemporánea?","acceptedAnswer":{"@type":"Answer","text":"Mediante procedencia, cronología, fuentes, testimonios, autoría y contexto de circulación. La oralidad, la memoria histórica, la creación autoral y el relato turístico se analizan como capas relacionadas, pero no equivalentes."}},
+          {"@type":"Question","name":"¿Dónde se consultan las investigaciones?","acceptedAnswer":{"@type":"Answer","text":"Las publicaciones y sus versiones preservadas se consultan en la comunidad científica del Centro en Zenodo y en la Revista Duendismo Cultural."}}
+        ]
       }
     ]
   }
   </script>
+  <style>
+    :root{
+      --night:#11112a;--ink:#1d2033;--indigo:#4547d8;--violet:#7665ef;
+      --lime:#d7f25f;--coral:#f06a4d;--cyan:#3cc7c3;--paper:#f4f1e9;
+      --white:#fffef9;--muted:#64677a;--line:rgba(29,32,51,.14);
+      --shadow:0 28px 80px rgba(17,17,42,.18)
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden}a{color:inherit}.wrap{width:min(1200px,92vw);margin:auto}.serif{font-family:Georgia,"Times New Roman",serif}.eyebrow{font-size:.76rem;font-weight:950;letter-spacing:.15em;text-transform:uppercase}
+    .topline{background:var(--lime);color:var(--night);font-size:.76rem;font-weight:950;letter-spacing:.06em}.topline .wrap{min-height:36px;display:flex;align-items:center;justify-content:space-between;gap:1rem}.topline a{text-decoration:none;border-bottom:1px solid currentColor}
+    header{position:sticky;top:0;z-index:40;background:rgba(17,17,42,.94);color:#fff;backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.12)}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:1rem}.brand{text-decoration:none;font-weight:1000;letter-spacing:-.04em}.brand b{color:var(--lime)}.navlinks{display:flex;align-items:center;gap:.15rem}.navlinks a{text-decoration:none;font-size:.86rem;font-weight:850;padding:.58rem .72rem;border-radius:999px}.navlinks a:hover{background:rgba(255,255,255,.1)}.navlinks .repo{background:var(--coral)}
+    .hero{min-height:calc(100vh - 108px);background:var(--night);color:#fff;display:flex;align-items:center;padding:clamp(4rem,8vw,8rem) 0;position:relative;isolation:isolate}.hero:before{content:"";position:absolute;width:650px;height:650px;border-radius:50%;right:-300px;top:-300px;background:var(--indigo);z-index:-1}.hero:after{content:"";position:absolute;width:420px;height:420px;border-radius:46% 54% 42% 58%;left:-250px;bottom:-240px;background:var(--coral);z-index:-1}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(2.5rem,7vw,7rem);align-items:center}.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(4rem,7.6vw,7.5rem);font-weight:500;letter-spacing:-.065em;line-height:.82;margin:.65rem 0 1.5rem;max-width:9.2ch}.hero h1 em{font-weight:500;color:var(--lime)}.hero .lead{max-width:660px;color:#c8c9dc;font-size:clamp(1.08rem,1.8vw,1.3rem)}.hero .lead strong{color:#fff}.actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:.75rem 1.05rem;border-radius:999px;text-decoration:none;border:1px solid var(--night);font-weight:950;transition:.2s}.btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(17,17,42,.18)}.btn.lime{background:var(--lime);color:var(--night);border-color:var(--lime)}.btn.white{background:#fff;color:var(--night);border-color:#fff}.btn.dark{background:var(--night);color:#fff}.btn.outline{border-color:rgba(255,255,255,.4);color:#fff}
+    .strata{display:grid;gap:8px;transform:rotate(-2deg)}.layer{min-height:66px;border-radius:14px;padding:.85rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;color:var(--night);font-weight:950;box-shadow:0 14px 28px rgba(0,0,0,.16)}.layer span{font-size:.72rem;letter-spacing:.1em}.layer:nth-child(1){background:#ded9cf;margin-left:9%}.layer:nth-child(2){background:var(--cyan);margin-right:4%}.layer:nth-child(3){background:var(--violet);color:#fff;margin-left:4%}.layer:nth-child(4){background:var(--lime);margin-right:8%}.layer:nth-child(5){background:var(--coral);color:#fff;margin-left:7%}.layer:nth-child(6){background:#fff;margin-right:2%}.strata-note{margin-top:1.2rem;color:#aaaac2;font-size:.88rem}
+    .position{background:var(--lime);color:var(--night);padding:2rem 0}.position-grid{display:grid;grid-template-columns:.6fr 1.4fr;gap:2rem}.position p{font-family:Georgia,serif;font-size:clamp(1.3rem,2.5vw,2.1rem);line-height:1.25;margin:0}.position strong{color:var(--indigo)}
+    .section{padding:clamp(4.5rem,9vw,8.5rem) 0}.head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.2rem}.head h2{font-family:Georgia,serif;font-size:clamp(3.2rem,6vw,6.2rem);font-weight:500;letter-spacing:-.055em;line-height:.84;margin:.45rem 0}.head p{max-width:520px;color:var(--muted)}
+    .definition{background:var(--white)}.definition-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(2rem,7vw,7rem)}.definition h2{font-family:Georgia,serif;font-size:clamp(3.3rem,6vw,6.2rem);font-weight:500;letter-spacing:-.055em;line-height:.84;margin:.5rem 0}.big-definition{font-family:Georgia,serif;font-size:clamp(1.55rem,2.7vw,2.5rem);line-height:1.25;margin-top:0}.big-definition strong{color:var(--indigo)}.definition-rule{height:10px;border-radius:10px;background:linear-gradient(90deg,var(--indigo) 0 25%,var(--cyan) 25% 50%,var(--lime) 50% 75%,var(--coral) 75%);margin:2rem 0}.definition p:not(.big-definition){color:var(--muted)}
+    .method{background:var(--night);color:#fff}.method .head p{color:#b9b9cc}.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.16);border-radius:28px;overflow:hidden}.method-card{min-height:270px;padding:1.5rem;background:var(--night);display:flex;flex-direction:column}.method-card:nth-child(2){background:#26265f}.method-card:nth-child(3){background:#314166}.method-card:nth-child(4){background:#235d60}.method-card:nth-child(5){background:#544236}.method-card:nth-child(6){background:#4f2935}.method-card .n{font-family:Georgia,serif;font-size:3.8rem;color:var(--lime);line-height:1}.method-card h3{font-family:Georgia,serif;font-size:1.65rem;line-height:1.05;margin:.7rem 0}.method-card p{color:#c9c9d8;font-size:.92rem;margin:auto 0 0}.method-warning{margin-top:1.5rem;padding:1.15rem 1.3rem;border-radius:18px;background:var(--lime);color:var(--night);font-weight:850}
+    .research{background:var(--paper)}.research-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.research-card{min-height:330px;border-radius:26px;padding:1.6rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.research-card:nth-child(1){background:var(--indigo);color:#fff}.research-card:nth-child(2){background:var(--cyan)}.research-card:nth-child(3){background:var(--coral);color:#fff}.research-card:nth-child(4){background:var(--lime)}.research-card .tag{font-size:.7rem;font-weight:950;letter-spacing:.1em}.research-card h3{font-family:Georgia,serif;font-size:clamp(2rem,3.5vw,3.7rem);font-weight:500;line-height:.92;letter-spacing:-.035em;margin:.6rem 0}.research-card p{max-width:520px;opacity:.82}
+    .case{background:var(--coral);color:#fff}.case-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:clamp(2rem,6vw,6rem);align-items:start}.case h2{font-family:Georgia,serif;font-size:clamp(3.7rem,6.7vw,6.7rem);font-weight:500;line-height:.82;letter-spacing:-.06em;margin:.5rem 0 1.3rem}.case p{color:#ffe1d8}.case-box{background:var(--night);border-radius:28px;padding:2rem;box-shadow:var(--shadow)}.case-box h3{font-family:Georgia,serif;font-size:2rem;margin:.2rem 0}.case-box p{color:#c8c8d9}.case-box ul{padding-left:1.2rem}.case-box li{margin:.55rem 0}.case-box strong{color:var(--lime)}
+    .publications{background:var(--white)}.publication-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem}.publication-card{border-radius:28px;padding:2rem;min-height:390px;display:flex;flex-direction:column;justify-content:space-between}.publication-card:first-child{background:var(--indigo);color:#fff}.publication-card:last-child{background:var(--lime)}.publication-card h3{font-family:Georgia,serif;font-size:clamp(2.5rem,4vw,4.2rem);line-height:.88;font-weight:500;margin:.5rem 0}.publication-card p{opacity:.8}.map-link{margin-top:1rem;display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-top:1px solid currentColor;text-decoration:none;font-weight:950}
+    .network{background:var(--night);color:#fff}.network .head p{color:#bcbccd}.network-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}.node{min-height:220px;padding:1.3rem;border-radius:22px;border:1px solid rgba(255,255,255,.16);text-decoration:none;display:flex;flex-direction:column;transition:.2s}.node:hover{background:rgba(255,255,255,.08);transform:translateY(-3px)}.node .role{font-size:.72rem;font-weight:950;color:var(--lime);letter-spacing:.08em}.node b{font-family:Georgia,serif;font-size:1.55rem;line-height:1.05;margin:.55rem 0}.node span{color:#bdbdce;font-size:.9rem;margin-top:auto}
+    .faq{background:var(--paper)}.faq-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:clamp(2rem,6vw,6rem)}.faq-intro{position:sticky;top:130px;align-self:start}.faq h2{font-family:Georgia,serif;font-size:clamp(3.5rem,6vw,6rem);font-weight:500;line-height:.82;letter-spacing:-.055em;margin:.5rem 0}.faq-list{border-top:1px solid var(--line)}details{border-bottom:1px solid var(--line)}summary{list-style:none;cursor:pointer;padding:1.2rem .25rem;display:grid;grid-template-columns:1fr auto;gap:1rem;font-family:Georgia,serif;font-size:1.3rem;font-weight:700}summary::-webkit-details-marker{display:none}summary:after{content:"＋";color:var(--coral);font-family:Inter,sans-serif}details[open] summary:after{content:"—"}details p{margin:-.25rem 3rem 1.3rem 0;color:var(--muted)}
+    footer{background:#09091b;color:#fff;padding:3rem 0}.foot{display:grid;grid-template-columns:1fr auto;gap:2rem}.foot strong{font-family:Georgia,serif;font-size:1.5rem}.foot p{color:#aaaabd;max-width:650px}.foot a{color:var(--lime);text-decoration:none}.foot-links{display:grid;gap:.4rem;text-align:right}
+    @media(max-width:920px){.hero-grid,.position-grid,.definition-grid,.case-grid,.publication-grid,.faq-grid{grid-template-columns:1fr}.hero{min-height:auto}.strata{margin-top:1rem}.method-grid,.network-grid{grid-template-columns:repeat(2,1fr)}.faq-intro{position:static}.head{display:block}.navlinks a:not(.repo){display:none}}
+    @media(max-width:620px){.topline span{display:none}.topline .wrap{justify-content:center}.hero h1{font-size:3.85rem}.method-grid,.research-grid,.network-grid,.foot{grid-template-columns:1fr}.method-card{min-height:220px}.research-card{min-height:280px}.foot-links{text-align:left}.layer{font-size:.84rem}.layer span{font-size:.65rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.node{transition:none}}
+  </style>
 </head>
-
 <body>
-
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav-flex" aria-label="Navegación principal">
-        <div class="brand">
-          <a href="/" style="color: inherit; text-decoration: none;">
-            Centro de Estudios Culturales Emergentes <span style="color:var(--accent-primary)">// Ecuador</span>
-          </a>
-        </div>
-        <div class="nav-links">
-          <a href="#mision">Misión</a>
-          <a href="#investigacion">Líneas de Investigación</a>
-          <a href="#archivo">Archivo</a>
-          <a href="https://zenodo.org/communities/centro-de-estudios-culturales-emergentes-ecuador" target="_blank" rel="noopener">Repositorio</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
-        <span class="badge">Investigación · Arte · Archivo Situado</span>
-        <h1 id="hero-title">Documentando la invención de la tradición en tiempo real.</h1>
-        <p class="lead">
-          Una plataforma independiente para el análisis crítico del turismo, la memoria y la apropiación simbólica. Desde Baños de Agua Santa hacia Latinoamérica.
-        </p>
-        
-        <div class="btn-group">
-          <a href="https://zenodo.org/communities/centro-de-estudios-culturales-emergentes-ecuador" class="btn btn-primary">
-            Acceder al Repositorio Científico (Zenodo)
-          </a>
-          <a href="https://duendismocultural.org/" class="btn btn-outline">
-            Revista Duendismo Cultural
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="container" style="padding-top: 4rem; padding-bottom: 2rem;">
-      <div style="max-width: 70ch;">
-        <h2>El fenómeno cultural emergente</h2>
-        <p>
-          Entendemos por "fenómeno emergente" aquellos procesos vivos donde los símbolos locales son reconfigurados por fuerzas externas (mercado turístico, viralidad digital, instituciones) transformando la identidad territorial.
-        </p>
-        <p>
-          Nuestro laboratorio principal es el <strong>Caso Baños de Agua Santa</strong>, donde analizamos cómo la obra artística de autor evoluciona hacia una "tradición" turística institucionalizada.
-        </p>
-        
-        <dl class="concept-list">
-          <dt>Duendismo Cultural</dt>
-          <dd>Estudio de la proliferación de iconografía fantástica (duendes) como motor económico y su impacto en la narrativa patrimonial de una región.</dd>
-          
-          <dt>Archivo de Defensa Cultural</dt>
-          <dd>Recopilación sistemática de documentos legales, artísticos y comunitarios para preservar la genealogía original de una obra frente a la apropiación.</dd>
-        </dl>
-      </div>
-    </section>
-
-    <section id="investigacion" class="container">
-      <h2>Líneas de Investigación y Acción</h2>
-      <div class="grid-cards">
-        
-        <article class="card">
-          <h3>1. Archivo y Memoria</h3>
-          <p>Reunimos oficios, bitácoras artísticas y registros orales. Construimos un contra-archivo que protege la autoría y la verdad histórica frente al borrado institucional o la simplificación turística.</p>
-        </article>
-
-        <article class="card">
-          <h3>2. Sociología del Turismo</h3>
-          <p>Investigamos cómo el turismo de masas reescribe los mitos locales. Analizamos la tensión entre "lo auténtico" y "lo espectacularizado" en destinos emergentes de Ecuador.</p>
-        </article>
-
-        <article class="card">
-          <h3>3. Divulgación Abierta</h3>
-          <p>Compromiso con la ciencia abierta (Open Science). Todas nuestras publicaciones se alojan en repositorios indexados (Zenodo) para garantizar trazabilidad y acceso perpetuo.</p>
-        </article>
-
-      </div>
-    </section>
-
-    <footer class="site-footer" id="contacto">
-      <div class="container">
-        <div class="grid-cards" style="grid-template-columns: 1fr 1fr; gap: 4rem; margin: 0;">
-          
-          <div>
-            <h4 style="margin-top:0;">Centro de Estudios Culturales Emergentes</h4>
-            <p>
-              Dirigido por Fito Girolami & Catalina Lucz-Ligeti.<br>
-              Baños de Agua Santa, Tungurahua, Ecuador.
-            </p>
-            <p>
-              <a href="mailto:info@estudiosculturalesemergentes.org">info@estudiosculturalesemergentes.org</a>
-            </p>
-          </div>
-
-          <div>
-            <h4 style="margin-top:0;">Red de Proyectos</h4>
-            <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
-              <li><a href="https://duendismocultural.org/">→ Revista Duendismo Cultural</a></li>
-              <li><a href="https://lacasadelduende.art/">→ La Casa del Duende (Museo/Taller)</a></li>
-              <li><a href="https://www.banos.travel/">→ Baños.travel (Plataforma Territorial)</a></li>
-              <li><a href="https://zenodo.org/communities/centro-de-estudios-culturales-emergentes-ecuador">→ Comunidad Científica Zenodo</a></li>
-            </ul>
-          </div>
-
-        </div>
-        
-        <div style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; text-align: center; opacity: 0.7;">
-          <small>
-            &copy; <span id="year"></span> Centro de Estudios Culturales Emergentes. 
-            Contenido bajo licencia Creative Commons BY-NC-SA 4.0 salvo indicación contraria.
-          </small>
-        </div>
-      </div>
-    </footer>
+  <div class="topline"><div class="wrap"><span>INVESTIGACIÓN SITUADA · CIENCIA ABIERTA · ECUADOR</span><a href="https://zenodo.org/communities/centro-de-estudios-culturales-emergentes-ecuador" target="_blank" rel="noopener">Repositorio científico ↗</a></div></div>
+  <header><div class="wrap nav"><a class="brand" href="#inicio">CECE <b>// ECUADOR</b></a><nav class="navlinks" aria-label="Navegación principal"><a href="#definicion">Qué estudiamos</a><a href="#metodo">Método</a><a href="#casos">Casos</a><a href="#red">Ecosistema</a><a class="repo" href="https://duendismocultural.org/">Revista</a></nav></div></header>
+  <main id="inicio">
+    <section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow" style="color:var(--cyan)">INVESTIGACIÓN · ARTE · ARCHIVO SITUADO</div><h1>Los símbolos no nacen convertidos en <em>tradición.</em></h1><p class="lead">Investigamos el momento en que una práctica, una obra o un relato comienza a circular, cambia de significado y entra en disputa. <strong>Documentamos ese proceso mientras ocurre.</strong></p><div class="actions"><a class="btn lime" href="#definicion">Qué estudiamos ↓</a><a class="btn outline" href="https://zenodo.org/communities/centro-de-estudios-culturales-emergentes-ecuador" target="_blank" rel="noopener">Ver investigaciones</a></div></div>
+      <div><div class="strata" aria-label="Capas de análisis cultural"><div class="layer">Oralidad y memoria profunda <span>CAPA 01</span></div><div class="layer">Religión y devoción <span>CAPA 02</span></div><div class="layer">Miedo y control social <span>CAPA 03</span></div><div class="layer">Memoria histórica territorial <span>CAPA 04</span></div><div class="layer">Creación autoral contemporánea <span>CAPA 05</span></div><div class="layer">Relato turístico reciente <span>CAPA 06</span></div></div><p class="strata-note">Las capas se relacionan. No se confunden.</p></div></div></section>
+    <section class="position"><div class="wrap position-grid"><div class="eyebrow">NUESTRA POSICIÓN</div><p>Investigamos desde una perspectiva situada, preservando <strong>autoría, memoria territorial y derecho a participar en el relato público.</strong></p></div></section>
+    <section class="section definition" id="definicion"><div class="wrap definition-grid"><div><div class="eyebrow" style="color:var(--indigo)">DEFINICIÓN CENTRAL</div><h2>¿Qué es lo emergente?</h2></div><div><p class="big-definition">Un fenómeno cultural emergente es una <strong>práctica, símbolo, narrativa o forma de organización</strong> cuyo significado todavía se encuentra en formación, circulación o disputa.</p><div class="definition-rule"></div><p>No presuponemos que todo cambio sea apropiación ni que toda circulación produzca tradición. Observamos procedencia, actores, fechas, soportes, relaciones de poder y transformaciones antes de formular conclusiones.</p></div></div></section>
+    <section class="section method" id="metodo"><div class="wrap"><div class="head"><div><div class="eyebrow" style="color:var(--lime)">MÉTODO ESTRATIGRÁFICO</div><h2>Separar para comprender.</h2></div><p>Una leyenda antigua, una memoria familiar, una obra contemporánea y una campaña turística pueden relacionarse, pero no son equivalentes.</p></div><div class="method-grid"><article class="method-card"><div class="n">01</div><h3>Oralidad</h3><p>Relatos transmitidos, variaciones, portadores y contextos.</p></article><article class="method-card"><div class="n">02</div><h3>Devoción</h3><p>Creencias, prácticas religiosas y pedagogías simbólicas.</p></article><article class="method-card"><div class="n">03</div><h3>Control social</h3><p>Miedo, advertencia y regulación comunitaria.</p></article><article class="method-card"><div class="n">04</div><h3>Memoria histórica</h3><p>Hechos, archivos, actores y transformaciones territoriales.</p></article><article class="method-card"><div class="n">05</div><h3>Creación autoral</h3><p>Obras recientes con autores, procesos y cronologías documentables.</p></article><article class="method-card"><div class="n">06</div><h3>Relato turístico</h3><p>Promoción, repetición, espectacularización e institucionalización.</p></article></div><div class="method-warning">Regla metodológica: la repetición comercial de un relato no demuestra por sí sola antigüedad, tradición ni origen comunitario.</div></div></section>
+    <section class="section research" id="lineas"><div class="wrap"><div class="head"><div><div class="eyebrow" style="color:var(--coral)">LÍNEAS DE INVESTIGACIÓN</div><h2>Donde cultura y poder se encuentran.</h2></div><p>El Centro construye conceptos, métodos y casos. Las publicaciones, mediciones y archivos circulan luego por el ecosistema.</p></div><div class="research-grid"><article class="research-card"><div class="tag">01 · PROCEDENCIA</div><div><h3>Genealogía y autoría</h3><p>Reconstrucción de fechas, creadores, fuentes, versiones y recorridos públicos.</p></div></article><article class="research-card"><div class="tag">02 · TERRITORIO</div><div><h3>Memoria situada</h3><p>Lectura de relatos y prácticas desde quienes habitan y producen cultura.</p></div></article><article class="research-card"><div class="tag">03 · CIRCULACIÓN</div><div><h3>Turismo y poder simbólico</h3><p>Cómo el mercado, las plataformas y las instituciones seleccionan y reescriben relatos.</p></div></article><article class="research-card"><div class="tag">04 · PRESERVACIÓN</div><div><h3>Archivo y ciencia abierta</h3><p>Corpus trazables, versiones preservadas, DOI y acceso público a la evidencia.</p></div></article></div></div></section>
+    <section class="section case" id="casos"><div class="wrap case-grid"><div><div class="eyebrow" style="color:var(--lime)">LABORATORIO PRINCIPAL</div><h2>Caso Baños de Agua Santa.</h2><p>Estudiamos cómo conviven y entran en tensión memoria territorial, leyendas, creación artística contemporánea, promoción turística e institucionalización de narrativas.</p><a class="btn lime" href="Mapa-Modelo-Actual-Banos.html">Abrir mapa ciudadano →</a></div><aside class="case-box"><h3>Una distinción necesaria</h3><p>La investigación no fusiona capas para fabricar continuidad histórica.</p><ul><li>Las leyendas territoriales se estudian desde su <strong>oralidad y memoria.</strong></li><li>La Casa del Duende y La Aldea Mágica se estudian como <strong>creación autoral contemporánea documentada desde 2013 y 2018.</strong></li><li>La expansión comercial se analiza como <strong>circulación turística posterior.</strong></li></ul></aside></div></section>
+    <section class="section publications" id="publicaciones"><div class="wrap"><div class="head"><div><div class="eyebrow" style="color:var(--indigo)">PUBLICAR · PRESERVAR · CONECTAR</div><h2>El conocimiento debe dejar rastro.</h2></div><p>Los marcos nacen en el Centro, se publican editorialmente y se preservan con identificadores persistentes.</p></div><div class="publication-grid"><article class="publication-card"><div><div class="eyebrow" style="color:var(--lime)">ACCESO ABIERTO DIAMANTE</div><h3>Revista Duendismo Cultural</h3><p>Artículos, informes, ensayos y estudios críticos sobre autoría, memoria situada, turismo y patrimonio emergente.</p></div><a class="btn lime" href="https://duendismocultural.org/">Ir a la revista ↗</a></article><article class="publication-card"><div><div class="eyebrow">PRESERVACIÓN</div><h3>Comunidad Zenodo</h3><p>Versiones, archivos, metadatos y DOI para consulta y reutilización responsable.</p></div><a class="map-link" href="https://zenodo.org/communities/centro-de-estudios-culturales-emergentes-ecuador" target="_blank" rel="noopener"><span>Abrir repositorio</span><span>↗</span></a></article></div></div></section>
+    <section class="section network" id="red"><div class="wrap"><div class="head"><div><div class="eyebrow" style="color:var(--lime)">ARQUITECTURA DE CONOCIMIENTO</div><h2>Una red. Funciones distintas.</h2></div><p>Cada proyecto aporta una capa específica y enlaza hacia las fuentes que sostienen sus afirmaciones.</p></div><div class="network-grid"><a class="node" href="/"><div class="role">MARCO CONCEPTUAL</div><b>Estudios Culturales Emergentes</b><span>Define conceptos, métodos y casos comparativos.</span></a><a class="node" href="https://observatorioculturalindependiente.org/"><div class="role">EVIDENCIA</div><b>Observatorio Cultural Independiente</b><span>Observa, mide, documenta y audita.</span></a><a class="node" href="https://duendismocultural.org/"><div class="role">PUBLICACIÓN</div><b>Revista Duendismo Cultural</b><span>Edita y organiza la producción académica.</span></a><a class="node" href="https://lacasadelduende.art/"><div class="role">OBRA Y PROCEDENCIA</div><b>La Casa del Duende</b><span>Autoría, cronología y práctica cultural material.</span></a><a class="node" href="https://soytungurahua.com/"><div class="role">TERRITORIO</div><b>SoyTungurahua</b><span>Conecta actores, lugares, rutas y comunidades.</span></a><a class="node" href="https://zenodo.org/communities/centro-de-estudios-culturales-emergentes-ecuador" target="_blank" rel="noopener"><div class="role">PRESERVACIÓN</div><b>Zenodo</b><span>Fija versiones, metadatos, archivos y DOI.</span></a></div></div></section>
+    <section class="section faq" id="preguntas"><div class="wrap faq-grid"><div class="faq-intro"><div class="eyebrow" style="color:var(--coral)">PREGUNTAS SEMÁNTICAS</div><h2>Qué somos.<br>Qué no.</h2></div><div class="faq-list"><details open><summary>¿Qué estudia el Centro?</summary><p>Prácticas, símbolos y narrativas cuyo significado se encuentra en formación o disputa, atendiendo a su origen, circulación, apropiación, mercantilización e institucionalización.</p></details><details><summary>¿Qué es un fenómeno cultural emergente?</summary><p>Una práctica, símbolo, narrativa o forma de organización cuyo significado todavía se está formando, circulando o disputando entre creadores, comunidades, mercados, plataformas e instituciones.</p></details><details><summary>¿Somos una universidad o institución pública?</summary><p>No. Somos un centro independiente de investigación situada y ciencia abierta con base en Baños de Agua Santa, Ecuador.</p></details><details><summary>¿El Centro y la Revista son lo mismo?</summary><p>No. El Centro construye marcos conceptuales, métodos y casos de estudio. La Revista Duendismo Cultural es una publicación de acceso abierto editada por el Centro.</p></details><details><summary>¿Cómo distinguimos leyenda y creación contemporánea?</summary><p>Mediante procedencia, cronología, fuentes, testimonios, autoría y contexto de circulación. La oralidad, la memoria histórica, la creación autoral y el relato turístico se analizan como capas relacionadas, pero no equivalentes.</p></details><details><summary>¿Dónde se consultan las investigaciones?</summary><p>En la comunidad científica del Centro en Zenodo y en la Revista Duendismo Cultural.</p></details></div></div></section>
   </main>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
+  <footer><div class="wrap foot"><div><strong>Centro de Estudios Culturales Emergentes – Ecuador</strong><p>Investigación independiente dirigida por Fito Girolami y Catalina Lucz-Ligeti desde Baños de Agua Santa, Tungurahua.</p><small>© <span id="year"></span> · CC BY-NC-SA 4.0 salvo indicación contraria.</small></div><div class="foot-links"><a href="#definicion">Qué estudiamos</a><a href="#metodo">Método</a><a href="#casos">Casos</a><a href="mailto:info@estudiosculturalesemergentes.org">Contacto</a></div></div></footer>
+  <script>document.getElementById("year").textContent=new Date().getFullYear()</script>
 </body>
 </html>
